@@ -5,25 +5,32 @@ export default function App() {
   const [theme, setTheme] = useState('');
   const [age, setAge] = useState([]);
   const [color, setColor] = useState('');
+  const [prompt, setPrompt] = useState('');
+  const [result, setResult] = useState('');
 
   const handleImageChange = (e) => {
-    setImage(URL.createObjectURL(e.target.files[0]));
+    const file = e.target.files[0];
+    if (file) {
+      setImage(URL.createObjectURL(file));
+    }
   };
 
   const handleAgeChange = (e) => {
     const value = e.target.value;
-    setAge(prev =>
-      prev.includes(value)
-        ? prev.filter(a => a !== value)
-        : [...prev, value]
+    setAge((prev) =>
+      prev.includes(value) ? prev.filter((a) => a !== value) : [...prev, value]
     );
   };
 
   const handleSubmit = () => {
-    alert(`Image uploaded ✅
-Theme: ${theme}
-Age: ${age.join(', ')}
-Color Palette: ${color}`);
+    const finalPrompt = `Design a room with a ${theme || 'modern'} theme, suitable for ${
+      age.length ? age.join(', ') : 'all age groups'
+    }, using a ${color || 'neutral'} color palette.`;
+
+    setPrompt(finalPrompt);
+    setResult('🪄 Generating output using AI... (integration coming next)');
+
+    // In the next step, we’ll send finalPrompt + image to OpenAI API
   };
 
   return (
@@ -71,6 +78,19 @@ Color Palette: ${color}`);
         <div style={{ marginTop: '2rem' }}>
           <h3>Preview:</h3>
           <img src={image} alt="Room Preview" style={{ maxWidth: '100%', borderRadius: '8px' }} />
+        </div>
+      )}
+
+      {prompt && (
+        <div style={{ marginTop: '2rem' }}>
+          <h3>Prompt:</h3>
+          <p>{prompt}</p>
+        </div>
+      )}
+
+      {result && (
+        <div style={{ marginTop: '1rem', color: 'green' }}>
+          <p>{result}</p>
         </div>
       )}
     </div>
