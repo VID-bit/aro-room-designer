@@ -1,8 +1,7 @@
-export default function App() {
-  return (
-    <div>
-      <h1>Aro Room Designer</h1>
-      <p>Welcome to your interior styling assistant!</p>
-    </div>
-  )
+import React from 'react';
+
+function App() {
+  return <h1>Aro Room Designer is Live!</h1>;
 }
+
+export default App;
