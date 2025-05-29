@@ -1,3 +1,5 @@
+import React from 'react'; // Fixes the error
+
 export default function App() {
   // Trigger redeploy
   return (
@@ -11,7 +13,7 @@ export default function App() {
       color: "#333",
       fontFamily: "sans-serif"
     }}>
-      🛋️ Welcome to Aro Room Designer – You're Live!
+      Welcome to Aro Room Designer – You’re Live!
     </div>
   );
 }
