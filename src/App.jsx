@@ -1,4 +1,5 @@
 export default function App() {
+  // Trigger redeploy
   return (
     <div style={{
       display: "flex",
@@ -10,7 +11,7 @@ export default function App() {
       color: "#333",
       fontFamily: "sans-serif"
     }}>
-      🚀 Welcome to Aro Room Designer – You’re Live!
+      🛋️ Welcome to Aro Room Designer – You're Live!
     </div>
   );
 }
