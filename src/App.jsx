@@ -1,6 +1,4 @@
-import React from 'react'; // Fixes the error
-
-export default function App() {
+{
   // Trigger redeploy
   return (
     <div style={{
